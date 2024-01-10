@@ -57,11 +57,4 @@ public abstract class Personnage {
     public void setForce(int force) {
         this.force = force;
     }
-
-    void attaquer(){
-
-    }
-    void defendre(){
-
-    }
 }

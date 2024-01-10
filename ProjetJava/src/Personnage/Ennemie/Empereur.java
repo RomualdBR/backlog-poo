@@ -15,6 +15,4 @@ public class Empereur extends Ennemi{
     public void setDescription(String description) {
         this.description = description;
     }
-    Empereur empereur = new Empereur("L'empereur Stefan, l'ingénieux informaticien", 250, 50, 60, 15, 0,
-            "L'empereur qui as commandité le meutre de votre mère, le responsable de toutes ces erreurs informatiques, l'ENNEMIE.");
-}
+    }

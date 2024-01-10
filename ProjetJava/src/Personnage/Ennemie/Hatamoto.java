@@ -15,6 +15,4 @@ public class Hatamoto extends Ennemi{
     public void setDescription(String description) {
         this.description = description;
     }
-    Hatamoto hatamoto = new Hatamoto("Tom le Hatamoto qui tricks", 145, 35, 25, 10, 55
-    ,"Au service du shogun ce sombre guerrier skateur attend de défendre son seigneur fidélement.");
-}
+   }

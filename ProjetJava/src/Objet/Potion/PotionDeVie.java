@@ -1,10 +1,9 @@
 package Objet.Potion;
 
 import Objet.Objet;
-import Objet.Interactuable;
 import Personnage.Ennemie.Ennemi;
 
-public class PotionDeVie extends Objet implements Interactuable {
+public class PotionDeVie extends Objet{
     private int heal;
 
     public PotionDeVie(String nom, int quantiter, String description, String rareter, int heal, int prix) {
@@ -20,9 +19,4 @@ public class PotionDeVie extends Objet implements Interactuable {
         this.heal = heal;
     }
 
-
-    @Override
-    public void makeDamage(Ennemi monEnnemi) {
-        monEnnemi.setPointsDeVie(monEnnemi.getPointsDeVie()-10);
-    }
 }

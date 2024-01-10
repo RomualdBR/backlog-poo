@@ -17,6 +17,5 @@ public class Sentinelle extends Joueur {
     public void setDescription(String description) {
         this.description = description;
     }
-    Sentinelle sentinelle = new Sentinelle("Sentinelle", 130, 15, 20, 0, 5,
-            "Maître incontesté de la défense ils incarnent la quintessence de la résilience.", 20);
+
 }

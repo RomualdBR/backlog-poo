@@ -15,6 +15,4 @@ public class Shogun extends Ennemi{
     public void setDescription(String description) {
         this.description = description;
     }
-    Shogun shogun = new Shogun("Shogun Benilde, le gracieux", 170, 40,35,12, 70
-    ,"Responsable des armées, dernier rempart de sa majesté");
-}
+   }

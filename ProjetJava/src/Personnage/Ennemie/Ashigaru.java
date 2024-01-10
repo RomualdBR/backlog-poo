@@ -1,6 +1,7 @@
 package Personnage.Ennemie;
+import interfaces.Interactuable;
 
-public class Ashigaru extends Ennemi{
+public class Ashigaru extends Ennemi implements Interactuable {
 
     private String description;
 
@@ -17,5 +18,35 @@ public class Ashigaru extends Ennemi{
         this.description = description;
     }
 
+
+    @Override
+    public void choixPotion() {
+
+    }
+
+    @Override
+    public void coupCritique() {
+
+    }
+
+    @Override
+    public void attaquer() {
+
+    }
+
+    @Override
+    public void defendre() {
+
+    }
+
+    @Override
+    public void utiliserPotion() {
+
+    }
+
+    @Override
+    public void ramasserLoot() {
+
+    }
 
 }

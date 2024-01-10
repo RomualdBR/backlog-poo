@@ -15,6 +15,4 @@ public class Ronin extends Ennemi{
     public void setDescription(String description) {
         this.description = description;
     }
-    Ronin roning = new Ronin("Ludwig, le sombre Ronin", 100, 25,15,8,35,
-            "Sombre guerrier errant n'ayant aucun maître et ayant envie de croiser le fer.");
-}
+    }

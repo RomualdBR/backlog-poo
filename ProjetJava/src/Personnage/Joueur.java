@@ -1,11 +1,12 @@
 package Personnage;
 
 import Objet.Arme.Arme;
-import Objet.Interactuable;
 import Personnage.Ennemie.Ennemi;
+import interfaces.Interactuable;
 
 public class Joueur extends Personnage implements Interactuable {
     private int xp;
+    private Arme armeEquiper;
     private int or;
 
     public Joueur(String nom, int pointsDeVie, int force, int armure, int xp, int chanceCrit, int or) {
@@ -31,14 +32,49 @@ public class Joueur extends Personnage implements Interactuable {
         this.or = or;
     }
 
+    public Arme getArmeEquiper() {
+        return armeEquiper;
+    }
+
+    public void retirerArme(){
+        this.setForce(this.getForce()-this.armeEquiper.getDegat());
+    }
+    public void setArmeEquiper(Arme armeEquiper) {
+            this.armeEquiper = armeEquiper;
+            this.setForce(this.getForce()+this.armeEquiper.getDegat());
+    }
+
     void ramasserObjet(){
 
     }
 
     @Override
-    public void makeDamage(Ennemi monEnnemi) {
-            monEnnemi.setPointsDeVie(monEnnemi.getPointsDeVie()-2);
-            monEnnemi.setArmure(monEnnemi.getArmure()-12);
+    public void choixPotion() {
+
+    }
+
+    @Override
+    public void coupCritique() {
+
+    }
+
+    @Override
+    public void attaquer() {
+
+    }
+
+    @Override
+    public void defendre() {
+
+    }
+
+    @Override
+    public void utiliserPotion() {
+
+    }
+
+    @Override
+    public void ramasserLoot() {
 
     }
 }

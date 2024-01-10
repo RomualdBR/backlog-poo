@@ -17,6 +17,5 @@ public class Ninja extends Joueur {
         this.description = description;
     }
 
-    Ninja ninja = new Ninja("Ninja", 80, 25, 10, 0, 25,
-            "Rigoureux et intrépide il n'a aucune pitier pour ses cibles.",10);
+
 }

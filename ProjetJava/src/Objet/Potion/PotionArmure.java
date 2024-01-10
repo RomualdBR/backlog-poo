@@ -17,6 +17,5 @@ public class PotionArmure extends Objet {
     public void setBonusArmure(int bonusArmure) {
         this.bonusArmure = bonusArmure;
     }
-    PotionArmure PotionArmure = new PotionArmure("Potion de bouclier",1, "Augmente l'armure pendant 3 tour de 15", "Commun",
-            15, 15);
+
 }

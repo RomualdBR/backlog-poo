@@ -15,6 +15,5 @@ public class Bandit extends Ennemi {
     public void setDescription(String description) {
         this.description = description;
     }
-    Bandit bandit = new Bandit("Pixelle le Bandit, au visage masqué car trop moche", 30, 5,0,0,
-            "Homme masqué en voulant à votre peau", 10);
+
 }
