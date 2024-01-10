@@ -1,10 +1,10 @@
 package Controler;
 
-import Personnage.Classe.Ninja;
-import Personnage.Classe.Samurai;
-import Personnage.Classe.Sentinelle;
-import Personnage.Ennemie.*;
-import Personnage.Joueur;
+import Modele.Personnage.Classe.Ninja;
+import Modele.Personnage.Classe.Samurai;
+import Modele.Personnage.Classe.Sentinelle;
+import Modele.Personnage.Ennemie.*;
+import Modele.Personnage.Joueur;
 
 public class ControlerPersonnages {
 

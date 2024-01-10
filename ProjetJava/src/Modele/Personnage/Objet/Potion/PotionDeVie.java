@@ -1,7 +1,6 @@
-package Objet.Potion;
+package Modele.Personnage.Objet.Potion;
 
-import Objet.Objet;
-import Personnage.Ennemie.Ennemi;
+import Modele.Personnage.Objet.Objet;
 
 public class PotionDeVie extends Objet{
     private int heal;

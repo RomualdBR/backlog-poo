@@ -1,4 +1,4 @@
-package Personnage.Ennemie;
+package Modele.Personnage.Ennemie;
 import interfaces.Interactuable;
 
 public class Ashigaru extends Ennemi implements Interactuable {

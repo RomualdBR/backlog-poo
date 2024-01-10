@@ -1,6 +1,5 @@
 import Controler.ControlerArmes;
 import Controler.ControlerPersonnages;
-import Personnage.Classe.Samurai;
 
 import static Controler.ControlerArmes.*;
 import static Controler.ControlerPersonnages.*;
@@ -9,7 +8,7 @@ public class Main {
 
         ControlerArmes.initArmes();
         ControlerPersonnages.initPersonnages();
-        Personnage.Classe.Samurai samurai = Samurai;
+        Modele.Personnage.Classe.Samurai samurai = Samurai;
         System.out.println(Samurai.getForce());
         samurai.setArmeEquiper(kunai);
         System.out.println(Samurai.getForce());
@@ -17,8 +16,6 @@ public class Main {
         System.out.println(Samurai.getForce());
         samurai.setArmeEquiper(ninjato);
         System.out.println(Samurai.getForce());
-
-
 
     }
 }

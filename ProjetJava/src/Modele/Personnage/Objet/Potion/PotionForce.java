@@ -1,6 +1,6 @@
-package Objet.Potion;
+package Modele.Personnage.Objet.Potion;
 
-import Objet.Objet;
+import Modele.Personnage.Objet.Objet;
 
 public class PotionForce extends Objet {
     private int bonusForce;

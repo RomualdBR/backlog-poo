@@ -1,7 +1,6 @@
-package Personnage;
+package Modele.Personnage;
 
-import Objet.Arme.Arme;
-import Personnage.Ennemie.Ennemi;
+import Modele.Personnage.Objet.Arme.Arme;
 import interfaces.Interactuable;
 
 public class Joueur extends Personnage implements Interactuable {

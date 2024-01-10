@@ -1,4 +1,4 @@
-package Personnage.Ennemie;
+package Modele.Personnage.Ennemie;
 
 public class Shogun extends Ennemi{
     private String description;

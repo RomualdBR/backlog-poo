@@ -1,6 +1,6 @@
-package Personnage.Classe;
+package Modele.Personnage.Classe;
 
-import Personnage.Joueur;
+import Modele.Personnage.Joueur;
 
 public class Ninja extends Joueur {
     private String description;
