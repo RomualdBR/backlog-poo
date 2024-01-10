@@ -2,17 +2,18 @@ package Objet;
 
 public class Objet {
     private String nom;
-
-    private String quantiter;
-
-private String rareter;
+    private int quantiter;
+    private String rareter;
     private String description;
 
-    public Objet(String nom, String quantiter, String description, String rareter) {
+     private int prix;
+
+    public Objet(String nom, int quantiter, String description, String rareter, int prix) {
         this.nom = nom;
         this.quantiter = quantiter;
         this.description = description;
         this.rareter = rareter;
+        this.prix = prix;
     }
 
     public String getNom() {
@@ -23,11 +24,11 @@ private String rareter;
         this.nom = nom;
     }
 
-    public String getQuantiter() {
+    public int getQuantiter() {
         return quantiter;
     }
 
-    public void setQuantiter(String quantiter) {
+    public void setQuantiter(int quantiter) {
         this.quantiter = quantiter;
     }
 
@@ -45,5 +46,13 @@ private String rareter;
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
     }
 }
