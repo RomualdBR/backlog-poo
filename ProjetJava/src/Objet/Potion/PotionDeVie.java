@@ -17,5 +17,6 @@ public class PotionDeVie extends Objet {
     public void setHeal(int heal) {
         this.heal = heal;
     }
-    PotionDeVie PotionDeVie = new PotionDeVie("Potion de vie", 1)
+    PotionDeVie PotionDeVieCommun = new PotionDeVie("Potion de vie", 1, "Régénère la vie et rend 40 Pv", "Commun",
+            40, 20);
 }
