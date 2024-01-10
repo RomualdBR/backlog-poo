@@ -1,6 +1,10 @@
 package Personnage;
 
-public class Joueur extends Personnage{
+import Objet.Arme.Arme;
+import Objet.Interactuable;
+import Personnage.Ennemie.Ennemi;
+
+public class Joueur extends Personnage implements Interactuable {
     private int xp;
     private int or;
 
@@ -27,5 +31,14 @@ public class Joueur extends Personnage{
         this.or = or;
     }
 
-    Joueur joueur = new Joueur(".", 50, 10, 0, 0, 5, 10);
+    void ramasserObjet(){
+
+    }
+
+    @Override
+    public void makeDamage(Ennemi monEnnemi) {
+            monEnnemi.setPointsDeVie(monEnnemi.getPointsDeVie()-2);
+            monEnnemi.setArmure(monEnnemi.getArmure()-12);
+
+    }
 }

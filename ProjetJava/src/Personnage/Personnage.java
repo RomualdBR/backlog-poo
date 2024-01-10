@@ -1,6 +1,6 @@
 package Personnage;
 
-public class Personnage {
+public abstract class Personnage {
 
     private String nom;
 

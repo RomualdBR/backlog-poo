@@ -2,7 +2,7 @@ package Objet.Arme;
 
 import Objet.Objet;
 
-public class Arme extends Objet {
+public abstract class Arme extends Objet {
     private int degat;
 
     public Arme(String nom, int quantiter, String description, String rareter, int degat, int prix) {

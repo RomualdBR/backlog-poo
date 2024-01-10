@@ -2,7 +2,7 @@ package Personnage.Ennemie;
 
 import Personnage.Personnage;
 
-public class Ennemi extends Personnage {
+public abstract class Ennemi extends Personnage {
     private int orDonner;
     public Ennemi(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int orDonner) {
 

@@ -17,6 +17,5 @@ public class Ashigaru extends Ennemi{
         this.description = description;
     }
 
-    Ashigaru ashigaru = new Ashigaru("Gégé l'Ashigaru, spécial", 75, 12, 17, 5,
-            "Soldat d'infanterie, souvent des paysans recruter en période de guerre.", 20);
+
 }

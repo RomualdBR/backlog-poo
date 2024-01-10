@@ -1,6 +1,6 @@
 package Objet;
 
-public class Objet {
+public abstract class Objet {
     private String nom;
     private int quantiter;
     private String rareter;

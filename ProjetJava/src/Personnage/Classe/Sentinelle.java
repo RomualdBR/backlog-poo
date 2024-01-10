@@ -5,8 +5,8 @@ import Personnage.Joueur;
 public class Sentinelle extends Joueur {
     private String description;
 
-    public Sentinelle(String nom, int pointsDeVie, int force, int armure, int xp, int chanceCrit, String description) {
-        super(nom, pointsDeVie, force, armure, xp, chanceCrit);
+    public Sentinelle(String nom, int pointsDeVie, int force, int armure, int xp, int chanceCrit, String description, int or) {
+        super(nom, pointsDeVie, force, armure, xp, chanceCrit, or);
         this.description = description;
     }
 
@@ -18,5 +18,5 @@ public class Sentinelle extends Joueur {
         this.description = description;
     }
     Sentinelle sentinelle = new Sentinelle("Sentinelle", 130, 15, 20, 0, 5,
-            "Maître incontesté de la défense ils incarnent la quintessence de la résilience.");
+            "Maître incontesté de la défense ils incarnent la quintessence de la résilience.", 20);
 }
