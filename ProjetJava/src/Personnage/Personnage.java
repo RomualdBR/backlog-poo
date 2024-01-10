@@ -8,12 +8,30 @@ public class Personnage {
 
     private int force;
     private int armure;
+    private int chanceCrit;
 
-    public Personnage(String nom, int pointsDeVie, int force, int armure) {
+    public Personnage(String nom, int pointsDeVie, int force, int armure, int changeCrit) {
         this.nom = nom;
         this.pointsDeVie = pointsDeVie;
         this.force = force;
         this.armure = armure;
+        this.chanceCrit = chanceCrit;
+    }
+
+    public int getArmure() {
+        return armure;
+    }
+
+    public void setArmure(int armure) {
+        this.armure = armure;
+    }
+
+    public int getChanceCrit() {
+        return chanceCrit;
+    }
+
+    public void setChanceCrit(int chanceCrit) {
+        this.chanceCrit = chanceCrit;
     }
 
     public String getNom() {

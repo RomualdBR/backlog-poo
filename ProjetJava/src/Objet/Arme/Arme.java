@@ -1,4 +1,6 @@
-package Objet;
+package Objet.Arme;
+
+import Objet.Objet;
 
 public class Arme extends Objet {
     private int degat;
