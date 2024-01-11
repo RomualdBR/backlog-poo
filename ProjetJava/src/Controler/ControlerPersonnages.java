@@ -27,16 +27,16 @@ public class ControlerPersonnages {
 
         /*Joueur*/
 
-        joueur = new Joueur(".", 50, 10, 0, 0, 5, 10, "");
+        joueur = new Joueur(".", 50, 10, 0, 0, 5, 10, "", 50);
 
         /*Classes Joueur*/
 
         ninja = new Ninja("Ninja", 80, 25, 10, 25, 25,
-                "Rigoureux et intrépide il n'a aucune pitier pour ses cibles.",10);
+                "Rigoureux et intrépide il n'a aucune pitier pour ses cibles.",10, 80);
         samurai = new Samurai("Samurai", 100, 15, 15, 15, 0,
-                "Guerrier à fine lame, ayant pour principe l'honneur en combattant ses adversaire.", 10);
+                "Guerrier à fine lame, ayant pour principe l'honneur en combattant ses adversaire.", 10, 100);
         sentinelle = new Sentinelle("Sentinelle", 130, 15, 20, 5, 0,
-                "Maître incontesté de la défense ils incarnent la quintessence de la résilience.", 20);
+                "Maître incontesté de la défense ils incarnent la quintessence de la résilience.", 20, 130);
 
         /*Personnages ennemies*/
 
