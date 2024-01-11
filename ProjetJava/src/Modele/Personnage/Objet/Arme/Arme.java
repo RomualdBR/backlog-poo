@@ -1,6 +1,6 @@
-package Objet.Arme;
+package Modele.Personnage.Objet.Arme;
 
-import Objet.Objet;
+import Modele.Personnage.Objet.Objet;
 
 public abstract class Arme extends Objet {
     private int degat;

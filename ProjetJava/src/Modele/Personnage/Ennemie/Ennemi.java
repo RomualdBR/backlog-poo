@@ -1,6 +1,6 @@
-package Personnage.Ennemie;
+package Modele.Personnage.Ennemie;
 
-import Personnage.Personnage;
+import Modele.Personnage.Personnage;
 
 public abstract class Ennemi extends Personnage {
     private int orDonner;

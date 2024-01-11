@@ -1,9 +1,9 @@
-package Personnage.Ennemie;
+package Modele.Personnage.Ennemie;
 
-public class Bandit extends Ennemi {
+public class Hatamoto extends Ennemi{
     private String description;
 
-    public Bandit(String nom, int pointsDeVie, int force, int armure, int chanceCrit, String description, int orDonner) {
+    public Hatamoto(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int orDonner, String description) {
         super(nom, pointsDeVie, force, armure, chanceCrit, orDonner);
         this.description = description;
     }
@@ -15,5 +15,4 @@ public class Bandit extends Ennemi {
     public void setDescription(String description) {
         this.description = description;
     }
-
-}
+   }

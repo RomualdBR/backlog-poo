@@ -1,6 +1,4 @@
-package Objet.Arme;
-
-import Objet.Objet;
+package Modele.Personnage.Objet.Arme;
 
 public class Kunai extends Arme {
 

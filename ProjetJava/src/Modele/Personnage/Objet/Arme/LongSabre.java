@@ -1,4 +1,4 @@
-package Objet.Arme;
+package Modele.Personnage.Objet.Arme;
 
 public class LongSabre extends Arme  {
 

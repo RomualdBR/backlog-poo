@@ -1,4 +1,4 @@
-package Personnage;
+package Modele.Personnage;
 
 public abstract class Personnage {
 
@@ -10,7 +10,7 @@ public abstract class Personnage {
     private int armure;
     private int chanceCrit;
 
-    public Personnage(String nom, int pointsDeVie, int force, int armure, int changeCrit) {
+    public Personnage(String nom, int pointsDeVie, int force, int armure, int chanceCrit) {
         this.nom = nom;
         this.pointsDeVie = pointsDeVie;
         this.force = force;

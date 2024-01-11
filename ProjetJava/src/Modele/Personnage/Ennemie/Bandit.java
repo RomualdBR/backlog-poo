@@ -1,9 +1,9 @@
-package Personnage.Ennemie;
+package Modele.Personnage.Ennemie;
 
-public class Ronin extends Ennemi{
+public class Bandit extends Ennemi {
     private String description;
 
-    public Ronin(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int orDonner, String description) {
+    public Bandit(String nom, int pointsDeVie, int force, int armure, int chanceCrit, String description, int orDonner) {
         super(nom, pointsDeVie, force, armure, chanceCrit, orDonner);
         this.description = description;
     }
@@ -15,4 +15,5 @@ public class Ronin extends Ennemi{
     public void setDescription(String description) {
         this.description = description;
     }
-    }
+
+}

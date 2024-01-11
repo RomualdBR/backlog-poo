@@ -1,4 +1,4 @@
-package Objet;
+package Modele.Personnage.Objet;
 
 public abstract class Objet {
     private String nom;

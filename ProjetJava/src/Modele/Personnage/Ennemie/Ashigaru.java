@@ -1,4 +1,4 @@
-package Personnage.Ennemie;
+package Modele.Personnage.Ennemie;
 import interfaces.Interactuable;
 
 public class Ashigaru extends Ennemi implements Interactuable {
@@ -46,6 +46,11 @@ public class Ashigaru extends Ennemi implements Interactuable {
 
     @Override
     public void ramasserLoot() {
+
+    }
+
+    @Override
+    public void choisirClasse() {
 
     }
 

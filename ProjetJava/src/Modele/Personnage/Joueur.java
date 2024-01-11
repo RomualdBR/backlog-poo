@@ -1,15 +1,19 @@
-package Personnage;
+package Modele.Personnage;
 
-import Objet.Arme.Arme;
-import Personnage.Ennemie.Ennemi;
+import Controler.ControlerPersonnages;
+import Modele.Personnage.Classe.*;
+import Modele.Personnage.Objet.Arme.Arme;
 import interfaces.Interactuable;
+import Controler.ControlerPersonnages.*;
+
+import java.util.Scanner;
 
 public class Joueur extends Personnage implements Interactuable {
     private int xp;
     private Arme armeEquiper;
     private int or;
 
-    public Joueur(String nom, int pointsDeVie, int force, int armure, int xp, int chanceCrit, int or) {
+    public Joueur(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int xp, int or) {
 
         super(nom, pointsDeVie, force, armure, chanceCrit);
         this.xp = xp;
@@ -76,5 +80,23 @@ public class Joueur extends Personnage implements Interactuable {
     @Override
     public void ramasserLoot() {
 
+    }
+
+    @Override
+    public void choisirClasse() {
+        Samurai j; "getDescription"
+        Ninja o;
+        Sentinelle m;
+
+        ControlerPersonnages.initPersonnages();
+        System.out.println("Choisissez votre classe : ");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        if (a == 1) {
+            j = ControlerPersonnages.samurai;
+        }
+        scanner.close();
+        System.out.println(j.getDescription());
+        System.out.println(o);
     }
 }

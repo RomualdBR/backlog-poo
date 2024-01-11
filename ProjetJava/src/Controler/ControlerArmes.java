@@ -1,11 +1,11 @@
 package Controler;
 
-import Objet.Arme.Katana;
-import Objet.Arme.Kunai;
-import Objet.Arme.LongSabre;
-import Objet.Potion.PotionArmure;
-import Objet.Potion.PotionDeVie;
-import Objet.Potion.PotionForce;
+import Modele.Personnage.Objet.Arme.Katana;
+import Modele.Personnage.Objet.Arme.Kunai;
+import Modele.Personnage.Objet.Arme.LongSabre;
+import Modele.Personnage.Objet.Potion.PotionArmure;
+import Modele.Personnage.Objet.Potion.PotionDeVie;
+import Modele.Personnage.Objet.Potion.PotionForce;
 
 public class ControlerArmes {
 
