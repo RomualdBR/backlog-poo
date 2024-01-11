@@ -1,21 +1,14 @@
 package Modele.Personnage.Ennemie;
 import interfaces.Interactuable;
 
+import java.util.Collection;
+
 public class Ashigaru extends Ennemi implements Interactuable {
 
     private String description;
 
-    public Ashigaru(String nom, int pointsDeVie, int force, int armure, int chanceCrit, String description, int orDonner) {
-        super(nom, pointsDeVie, force, armure, chanceCrit, orDonner);
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public Ashigaru(String nom, int pointsDeVie, int force, int armure, int chanceCrit, String description) {
+        super(nom, pointsDeVie, force, armure, chanceCrit, description);
     }
 
 
@@ -39,22 +32,22 @@ public class Ashigaru extends Ennemi implements Interactuable {
 
     }
 
-    @Override
+
     public void ouvrirInventaire() {
 
     }
 
-    @Override
+
     public void utiliserPotionDeVie() {
 
     }
 
-    @Override
+
     public void utiliserPotionArmure() {
 
     }
 
-    @Override
+
     public void utiliserPotionDeForce() {
 
     }
@@ -73,5 +66,4 @@ public class Ashigaru extends Ennemi implements Interactuable {
     public void commencerCombatBandit() {
 
     }
-
 }

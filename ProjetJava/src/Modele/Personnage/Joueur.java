@@ -1,11 +1,13 @@
 package Modele.Personnage;
 
 import Controler.ControlerArmes;
+import Controler.ControlerPersonnages;
 import Modele.Personnage.Objet.Arme.Arme;
 import interfaces.Interactuable;
 
 import java.util.Scanner;
 
+import static Controler.ControlerArmes.potionDeVieCommun;
 import static Controler.ControlerPersonnages.*;
 
 public class Joueur extends Personnage implements Interactuable {
@@ -14,6 +16,7 @@ public class Joueur extends Personnage implements Interactuable {
     private int or;
     private String description;
     private int vieMax;
+    Modele.Personnage.Joueur joueur = ControlerPersonnages.joueur;
 
 
     public Joueur(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int xp, int or, String description, int vieMax) {
@@ -65,6 +68,7 @@ public class Joueur extends Personnage implements Interactuable {
 
     }
 
+
     @Override
     public void choixPotion() {
 
@@ -77,31 +81,7 @@ public class Joueur extends Personnage implements Interactuable {
 
     @Override
     public void attaquer() {
-        Joueur p = player.getFirst();
 
-    }
-
-    @Override
-    public void commencerCombatBandit() {
-        Joueur p = player.getFirst();
-        while (p.getPointsDeVie()<=0 || bandit.getPointsDeVie()<= 0){
-            System.out.println( "\n\n\nJoueur Stat : " + p.getPointsDeVie() + " Pv - " + p.getForce() + " Force - " + p.getArmure() + " Armure - " + p.getChanceCrit() + " Crit chance "
-                    +  "                                                          " +
-                    "Bandit Stat : " + bandit.getPointsDeVie() + " Pv - " + bandit.getForce() + " Force - " + bandit.getArmure() + " Armure - " + bandit.getChanceCrit() + " Crit chance " );
-
-            System.out.println("Que voulez vous faire : \n 1 : Attaquer \n 2 : Ouvrir l'inventaire de potion \n Choix : ");
-            Scanner scannewr = new Scanner(System.in);
-            int a = scannewr.nextInt();
-            if (a == 1 ){
-                attaquer();
-            }
-            if (a == 2) {
-                ouvrirInventaire();
-            }
-            else {
-
-            }
-        }
     }
 
     @Override
@@ -109,80 +89,9 @@ public class Joueur extends Personnage implements Interactuable {
 
     }
 
-    @Override
-    public void utiliserPotionDeVie() {
-        Joueur p = player.getFirst();
-        p.setPointsDeVie(p.getPointsDeVie() + ControlerArmes.potionDeVieCommun.getHeal());
-        try {
-            if (p.getPointsDeVie() > p.vieMax) {
-                p.setPointsDeVie(p.vieMax);
-                System.out.println(p.getPointsDeVie());
-            }
-            if (p.getPointsDeVie() == p.vieMax) {
-                System.out.println("Vous ne pouvez pas vous soignez si vous êtes full vie.");
-                ouvrirInventaire();
-            }
-        }catch(Exception exception){
-            System.out.println("Problème avec la potion de soin.");
-            ouvrirInventaire();
-        }
-        System.out.println(p.getPointsDeVie());
-        ouvrirInventaire();
-    }
 
-    @Override
-    public void ramasserLoot() {
-
-    }
-
-    @Override
-    public void choisirClasse() {
-
-        initPersonnages();
-        System.out.println("Vous avez le choix entre ces classes :  \n" +
-                " Classe 1 Samurai : " + samurai.getDescription() + " Stat : " + samurai.getPointsDeVie() + " Pv - " + samurai.getForce() + " Force - " + samurai.getArmure() + " Armure - " + samurai.getChanceCrit() + " Crit chance \n" +
-                " Classe 2 Ninja : " + ninja.getDescription() + " Stat : " + ninja.getPointsDeVie() + " Pv - " + ninja.getForce() + " Force - " + ninja.getArmure() + " Armure - " + ninja.getChanceCrit() + " Crit chance \n" +
-                " Classe 3 Sentinelle : " + sentinelle.getDescription() + " Stat : " + sentinelle.getPointsDeVie() + " Pv - " + sentinelle.getForce() + " Force - " + sentinelle.getArmure() + " Armure - " + sentinelle.getChanceCrit() + " Crit chance \n");
-
-        System.out.println("Choisissez votre classe : ");
-
-        try {
-            Scanner scanner = new Scanner(System.in);
-            int a = scanner.nextInt();
-            if (a == 1) {
-                player.add(samurai);
-            }
-            if (a == 2) {
-                player.add(ninja);
-            }
-            if (a == 3) {
-                player.add(sentinelle);
-            } else if (a > 3 || a < 1) {
-                System.out.println("un effort messieur entre 1 et 3 quand même");
-                System.out.println(
-                        " Classe 1 Samurai : " + samurai.getDescription() + " Stat : " + samurai.getPointsDeVie() + " Pv - " + samurai.getForce() + " Force - " + samurai.getArmure() + " Armure - " + samurai.getChanceCrit() + " Crit chance \n" +
-                                " Classe 2 Ninja : " + ninja.getDescription() + " Stat : " + ninja.getPointsDeVie() + " Pv - " + ninja.getForce() + " Force - " + ninja.getArmure() + " Armure - " + ninja.getChanceCrit() + " Crit chance \n" +
-                                " Classe 3 Sentinelle : " + sentinelle.getDescription() + " Stat : " + sentinelle.getPointsDeVie() + " Pv - " + sentinelle.getForce() + " Force - " + sentinelle.getArmure() + " Armure - " + sentinelle.getChanceCrit() + " Crit chance \n");
-
-                choisirClasse();
-            }
-
-        } catch (Exception exception) {
-            System.out.println("Un chiffre please mister");
-            System.out.println(
-                    "Classe 1 Samurai : " + samurai.getDescription() + " Stat : " + samurai.getPointsDeVie() + " Pv - " + samurai.getForce() + " Force - " + samurai.getArmure() + " Armure - " + samurai.getChanceCrit() + " Crit chance \n" +
-                            "Classe 2 Ninja : " + ninja.getDescription() + " Stat : " + ninja.getPointsDeVie() + " Pv - " + ninja.getForce() + " Force - " + ninja.getArmure() + " Armure - " + ninja.getChanceCrit() + " Crit chance \n" +
-                            "Classe 3 Sentinelle : " + sentinelle.getDescription() + " Stat : " + sentinelle.getPointsDeVie() + " Pv - " + sentinelle.getForce() + " Force - " + sentinelle.getArmure() + " Armure - " + sentinelle.getChanceCrit() + " Crit chance \n");
-
-            choisirClasse();
-        }
-
-
-    }
-
-    public void ouvrirInventaire() {
-
-        System.out.println("1 : " + ControlerArmes.potionDeVieCommun.getNom() + " | Quantité : " + ControlerArmes.potionDeVieCommun.getQuantiter() + " | Description : " + ControlerArmes.potionDeVieCommun.getDescription());
+    public static void ouvrirInventaire() {
+        System.out.println("1 : " + potionDeVieCommun.getNom() + " | Quantité : " + potionDeVieCommun.getQuantiter() + " | Description : " + potionDeVieCommun.getDescription());
         System.out.println("2 : " + ControlerArmes.potiondeforce.getNom() + "| Quantité : " + ControlerArmes.potiondeforce.getQuantiter() + " | Description : " + ControlerArmes.potiondeforce.getDescription());
         System.out.println("3 : " + ControlerArmes.potionarmure.getNom() + "| Quantité : " + ControlerArmes.potionarmure.getQuantiter() + " | Description : " + ControlerArmes.potionarmure.getDescription());
         System.out.println("Souhaitez vous utilisez une potion? Si oui choisissez entre 1 et 3 la quel, sinon entrer le chiffre 4 pour quitter.");
@@ -192,8 +101,8 @@ public class Joueur extends Personnage implements Interactuable {
             Scanner scannewr = new Scanner(System.in);
             int a = scannewr.nextInt();
             if (a == 1) {
-                if (ControlerArmes.potionDeVieCommun.getQuantiter() > 0) {
-                    ControlerArmes.potionDeVieCommun.setQuantiter(ControlerArmes.potionDeVieCommun.getQuantiter() - 1);
+                if (potionDeVieCommun.getQuantiter() > 0) {
+                    potionDeVieCommun.setQuantiter(potionDeVieCommun.getQuantiter() - 1);
                     utiliserPotionDeVie();
                 } else {
                     System.out.println("Vous n'avez plus de potion de vie commune.");
@@ -226,10 +135,49 @@ public class Joueur extends Personnage implements Interactuable {
             //ouvrirInventaire();
         }
     }
-    public void utiliserPotionArmure(){
+
+
+    public static void utiliserPotionDeVie() {
+        try {
+            playyy.setPointsDeVie(playyy.getPointsDeVie()+ potionDeVieCommun.getHeal());
+            if (playyy.getPointsDeVie() > playyy.vieMax) {
+                playyy.setPointsDeVie(playyy.vieMax);
+                System.out.println(playyy.getPointsDeVie());
+            }
+            if (playyy.getPointsDeVie() == playyy.vieMax) {
+                System.out.println("Vous ne pouvez pas vous soignez si vous êtes full vie.");
+                ouvrirInventaire();
+            }
+        }catch(Exception exception){
+            System.out.println("Problème avec la potion de soin.");
+            ouvrirInventaire();
+        }
+        System.out.println(playyy.getPointsDeVie());
+        ouvrirInventaire();
 
     }
-    public void utiliserPotionDeForce(){
+
+
+    public static void utiliserPotionArmure(){
+
+    }
+    public static void utiliserPotionDeForce(){
+
+    }
+
+    @Override
+    public void ramasserLoot() {
+
+    }
+
+    @Override
+    public void choisirClasse() {
+
+    }
+
+
+    @Override
+    public void commencerCombatBandit() {
 
     }
 }

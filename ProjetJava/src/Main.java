@@ -1,9 +1,12 @@
 import Controler.ControlerArmes;
 import Controler.ControlerPersonnages;
-import Modele.Personnage.Ennemie.Bandit;
+import Modele.Personnage.Action.Bagarre;
+import Modele.Personnage.Classe.Samurai;
+import Modele.Personnage.Ennemie.Ashigaru;
+import Modele.Personnage.Ennemie.Ennemi;
 import Modele.Personnage.Joueur;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 import static Controler.ControlerPersonnages.*;
 
@@ -13,13 +16,12 @@ public class Main {
 
         ControlerArmes.initArmes();
         ControlerPersonnages.initPersonnages();
-        Modele.Personnage.Joueur joueur = ControlerPersonnages.joueur;
-        joueur.choisirClasse();
-        Joueur p = player.getFirst();
-        System.out.println(p.getNom());
+        ControlerPersonnages.choisirClasse();
+        System.out.println(playyy.getNom());
 
 
-        p.setPointsDeVie(p.getPointsDeVie()-10);
+
+
 
 
 

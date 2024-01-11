@@ -3,18 +3,17 @@ package Modele.Personnage.Ennemie;
 import Modele.Personnage.Personnage;
 
 public abstract class Ennemi extends Personnage {
-    private int orDonner;
-    public Ennemi(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int orDonner) {
-
+    private String description;
+    public Ennemi(String nom, int pointsDeVie, int force, int armure, int chanceCrit, String description) {
         super(nom, pointsDeVie, force, armure, chanceCrit);
-        this.orDonner = orDonner;
+        this.description = description;
     }
 
-    public int getOrDonner() {
-        return orDonner;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOrDonner(int orDonner) {
-        this.orDonner = orDonner;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
