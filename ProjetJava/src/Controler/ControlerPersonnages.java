@@ -6,6 +6,9 @@ import Modele.Personnage.Classe.Sentinelle;
 import Modele.Personnage.Ennemie.*;
 import Modele.Personnage.Joueur;
 
+import javax.naming.ldap.Control;
+import java.util.ArrayList;
+import java.util.Collections;
 public class ControlerPersonnages {
 
     public static Joueur joueur;
@@ -18,12 +21,13 @@ public class ControlerPersonnages {
     public static Hatamoto hatamoto;
     public static Ronin roning;
     public static Shogun shogun;
+    public static ArrayList<Joueur> player= new ArrayList<Joueur>();
 
     public static void initPersonnages(){
 
         /*Joueur*/
 
-        joueur = new Joueur(".", 50, 10, 0, 0, 5, 10);
+        joueur = new Joueur(".", 50, 10, 0, 0, 5, 10, "");
 
         /*Classes Joueur*/
 
