@@ -3,7 +3,7 @@ package Modele.Personnage;
 import Controler.ControlerArmes;
 import Modele.Personnage.Objet.Arme.Arme;
 import interfaces.Interactuable;
-
+import java.util.Random;
 import java.util.Scanner;
 
 import static Controler.ControlerPersonnages.*;
@@ -61,9 +61,6 @@ public class Joueur extends Personnage implements Interactuable {
         this.description = description;
     }
 
-    void ramasserObjet() {
-
-    }
 
     @Override
     public void choixPotion() {
@@ -81,26 +78,44 @@ public class Joueur extends Personnage implements Interactuable {
 
     }
 
-    @Override
-    public void commencerCombatBandit() {
-        Joueur p = player.getFirst();
-        while (p.getPointsDeVie()<=0 || bandit.getPointsDeVie()<= 0){
-            System.out.println( "\n\n\nJoueur Stat : " + p.getPointsDeVie() + " Pv - " + p.getForce() + " Force - " + p.getArmure() + " Armure - " + p.getChanceCrit() + " Crit chance "
-                    +  "                                                          " +
-                    "Bandit Stat : " + bandit.getPointsDeVie() + " Pv - " + bandit.getForce() + " Force - " + bandit.getArmure() + " Armure - " + bandit.getChanceCrit() + " Crit chance " );
 
-            System.out.println("Que voulez vous faire : \n 1 : Attaquer \n 2 : Ouvrir l'inventaire de potion \n Choix : ");
+
+
+
+    @Override
+    public void menuAttaquer() {
+        try {
             Scanner scannewr = new Scanner(System.in);
             int a = scannewr.nextInt();
-            if (a == 1 ){
-                attaquer();
-            }
-            if (a == 2) {
-                ouvrirInventaire();
-            }
-            else {
+            System.out.println("1 : Attaque de base                    2 : 1 ère compétence \n3 : 2 ème compétence                   4 : 3ème compétence");
+            if (a == 1){
+                coupPuissant();
+            }if (a == 2){
 
+            }if (a == 3){
+
+            }if (a == 4){
+
+            }if (a == 5){
+                menuCombat();
+            }else{
+                System.out.println("Veuillez mettre un chiffre valide.");
             }
+        }catch(Exception e){
+
+        }
+    }
+
+
+
+
+    @Override
+    public void critMaybe() {
+        Joueur p = player.getFirst();
+        Random r = new Random();
+        int n = r.nextInt(p.getChanceCrit()+1);
+        if(n==1){
+            p.setForce(getForce()*1.5);
         }
     }
 
@@ -180,6 +195,52 @@ public class Joueur extends Personnage implements Interactuable {
 
     }
 
+
+
+
+
+    public void menuCombat() {
+        Joueur p = player.getFirst();
+        while (p.getPointsDeVie()<=0 || bandit.getPointsDeVie()<= 0){
+
+
+            System.out.println( "\n\n\nJoueur Stat : " + p.getPointsDeVie() + " Pv - " + p.getForce() + " Force - " + p.getArmure() + " Armure - " + p.getChanceCrit() + " Crit chance "
+                    +  "                                                          " +
+                    "Bandit Stat : " + .getPointsDeVie() + " Pv - " + .getForce() + " Force - " + .getArmure() + " Armure - " + .getChanceCrit() + " Crit chance " );
+
+            System.out.println("Que voulez vous faire : \n 1 : Attaquer \n 2 : Ouvrir l'inventaire de potion \n Choix : ");
+            Scanner scannetr = new Scanner(System.in);
+            int a = scannetr.nextInt();
+            try {
+                if (a == 1) {
+                    menuAttaquer();
+                }
+                if (a == 2) {
+                    ouvrirInventaire();
+                }
+                else {
+                    System.out.println("rentrer un chiffre entre 1 et 2 ");
+                }
+            }catch(Exception e){
+                System.out.println("Rentrez un chiffre s'il vous plait.");
+
+            }
+        }
+    }
+
+
+    public void coupPuissant() {
+        Joueur p = player.getFirst();
+        int stockAttack = p.getForce();
+        critMaybe();
+        double attaqueSpeciale = p.setForce(p.getForce() * 1.3);
+        .setPointsDeVie((int) (.getPointsDeVie() - attaqueSpeciale));
+        p.setForce(stockAttack);
+        bandiAttack();
+    }
+
+
+
     public void ouvrirInventaire() {
 
         System.out.println("1 : " + ControlerArmes.potionDeVieCommun.getNom() + " | Quantité : " + ControlerArmes.potionDeVieCommun.getQuantiter() + " | Description : " + ControlerArmes.potionDeVieCommun.getDescription());
@@ -216,6 +277,7 @@ public class Joueur extends Personnage implements Interactuable {
                     ouvrirInventaire();
                 }
             } else if (a == 4) {
+               ;
                 // Code pour quitter
             } else {
                 System.out.println("Veuillez choisir un nombre entre 1 et 4.");
@@ -231,5 +293,10 @@ public class Joueur extends Personnage implements Interactuable {
     }
     public void utiliserPotionDeForce(){
 
+    }
+    @Override
+    public void bandiAttack(){
+        Joueur p = player.getFirst();
+        p.setPointsDeVie(p.getPointsDeVie()- ashigaru.getForce());
     }
 }

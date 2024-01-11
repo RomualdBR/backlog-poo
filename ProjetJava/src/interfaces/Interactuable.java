@@ -1,5 +1,7 @@
 package interfaces;
 
+import Modele.Personnage.Ennemie.Ennemi;
+
 public interface Interactuable {
     void choixPotion();
     void coupCritique();
@@ -11,7 +13,10 @@ public interface Interactuable {
     void utiliserPotionDeForce();
     void ramasserLoot();
     void choisirClasse();
-    void commencerCombatBandit();
-    void menuAttaquer();
 
+
+    void critMaybe();
+    void bandiAttack();
+
+    void menuCombat();
 }

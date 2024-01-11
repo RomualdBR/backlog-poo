@@ -1,5 +1,7 @@
 package Modele.Personnage;
+import Modele.Personnage.Ennemie.Ennemi;
 
+import java.util.Random;
 public abstract class Personnage {
 
     private String nom;
@@ -54,7 +56,20 @@ public abstract class Personnage {
         return force;
     }
 
-    public void setForce(int force) {
-        this.force = force;
+    public double setForce(double force) {
+        this.force = (int) force;
+        return force;
     }
+
+
+    public abstract void commencerCombatBandit(Ennemi enemi);
+
+    public abstract void menuAttaquer(Ennemi enemi);
+
+    public abstract void commencerCombatBandit();
+
+    public abstract void menuAttaquer();
+
+    public abstract void menuCombat();
 }
+

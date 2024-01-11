@@ -46,5 +46,8 @@ public class ControlerArmes {
         longsabre = new LongSabre("Sabre rouillé", 1,"Sabre qui a déjà tranché et rouillé par le temps ", "Commun",10, 0);
     }
 
+    public double attaqueDeBase(Joueur us, Modele.Personnage.Ennemie.Ennemi enemo){
+        return us.getForce();
+    }
 
 }
