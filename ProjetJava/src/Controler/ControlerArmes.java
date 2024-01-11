@@ -1,11 +1,13 @@
 package Controler;
 
+import Modele.Personnage.Joueur;
 import Modele.Personnage.Objet.Arme.Katana;
 import Modele.Personnage.Objet.Arme.Kunai;
 import Modele.Personnage.Objet.Arme.LongSabre;
 import Modele.Personnage.Objet.Potion.PotionArmure;
 import Modele.Personnage.Objet.Potion.PotionDeVie;
 import Modele.Personnage.Objet.Potion.PotionForce;
+import java.util.ArrayList;
 
 public class ControlerArmes {
 
@@ -22,9 +24,9 @@ public class ControlerArmes {
     public static void initArmes(){
         /*Potions*/
 
-        potionarmure = new PotionArmure("Potion de bouclier",1, "Augmente l'armure pendant 3 tour de 15", "Commun", 15, 15);
-        potionDeVieCommun = new PotionDeVie("Potion de vie", 1, "Régénère la vie et rend 40 Pv", "Commun", 40, 20);
-        potiondeforce = new PotionForce("Potion de force",1,"donne des dégats supplémentaire pendant 2 tours","Commun",10,10);
+        potionarmure = new PotionArmure("Potion de bouclier",0, "Augmente l'armure pendant 3 tour de 15", "Commun", 15, 15);
+        potionDeVieCommun = new PotionDeVie("Potion de vie", 1, "Régénère la vie et rend 40 Pv sans pouvoir exceder les points de vie max", "Commun", 40, 20);
+        potiondeforce = new PotionForce("Potion de force",0,"donne des dégats supplémentaire pendant 2 tours","Commun",10,15);
 
         /*Armes*/
 

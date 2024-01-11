@@ -40,7 +40,22 @@ public class Ashigaru extends Ennemi implements Interactuable {
     }
 
     @Override
-    public void utiliserPotion() {
+    public void ouvrirInventaire() {
+
+    }
+
+    @Override
+    public void utiliserPotionDeVie() {
+
+    }
+
+    @Override
+    public void utiliserPotionArmure() {
+
+    }
+
+    @Override
+    public void utiliserPotionDeForce() {
 
     }
 
@@ -51,6 +66,11 @@ public class Ashigaru extends Ennemi implements Interactuable {
 
     @Override
     public void choisirClasse() {
+
+    }
+
+    @Override
+    public void commencerCombatBandit() {
 
     }
 

@@ -5,8 +5,13 @@ public interface Interactuable {
     void coupCritique();
     void attaquer();
     void defendre();
-    void utiliserPotion();
+    void ouvrirInventaire();
+    void utiliserPotionDeVie();
+    void utiliserPotionArmure();
+    void utiliserPotionDeForce();
     void ramasserLoot();
     void choisirClasse();
+    void commencerCombatBandit();
+    void menuAttaquer();
 
 }
