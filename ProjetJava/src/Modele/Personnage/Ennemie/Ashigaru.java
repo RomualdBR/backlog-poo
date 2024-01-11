@@ -50,7 +50,7 @@ public class Ashigaru extends Ennemi implements Interactuable {
     }
 
     @Override
-    public void changerDeClasse() {
+    public void choisirClasse() {
 
     }
 

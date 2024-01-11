@@ -1,7 +1,12 @@
 package Modele.Personnage;
 
+import Controler.ControlerPersonnages;
+import Modele.Personnage.Classe.*;
 import Modele.Personnage.Objet.Arme.Arme;
 import interfaces.Interactuable;
+import Controler.ControlerPersonnages.*;
+
+import java.util.Scanner;
 
 public class Joueur extends Personnage implements Interactuable {
     private int xp;
@@ -78,7 +83,20 @@ public class Joueur extends Personnage implements Interactuable {
     }
 
     @Override
-    public void changerDeClasse() {
+    public void choisirClasse() {
+        Samurai j; "getDescription"
+        Ninja o;
+        Sentinelle m;
 
+        ControlerPersonnages.initPersonnages();
+        System.out.println("Choisissez votre classe : ");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        if (a == 1) {
+            j = ControlerPersonnages.samurai;
+        }
+        scanner.close();
+        System.out.println(j.getDescription());
+        System.out.println(o);
     }
 }

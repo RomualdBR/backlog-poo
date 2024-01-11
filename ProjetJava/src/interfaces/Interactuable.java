@@ -7,5 +7,6 @@ public interface Interactuable {
     void defendre();
     void utiliserPotion();
     void ramasserLoot();
-    void changerDeClasse();
+    void choisirClasse();
+
 }

@@ -10,7 +10,7 @@ public class ControlerPersonnages {
 
     public static Joueur joueur;
     public static Ninja ninja;
-    public static Samurai Samurai;
+    public static Samurai samurai;
     public static Sentinelle sentinelle;
     public static Ashigaru ashigaru;
     public static Bandit bandit;
@@ -29,7 +29,7 @@ public class ControlerPersonnages {
 
         ninja = new Ninja("Ninja", 80, 25, 10, 25, 25,
                 "Rigoureux et intrépide il n'a aucune pitier pour ses cibles.",10);
-        Samurai = new Samurai("Samurai", 100, 15, 15, 15, 0,
+        samurai = new Samurai("Samurai", 100, 15, 15, 15, 0,
                 "Guerrier à fine lame, ayant pour principe l'honneur en combattant ses adversaire.", 10);
         sentinelle = new Sentinelle("Sentinelle", 130, 15, 20, 5, 0,
                 "Maître incontesté de la défense ils incarnent la quintessence de la résilience.", 20);
