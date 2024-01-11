@@ -8,14 +8,9 @@ public class Main {
 
         ControlerArmes.initArmes();
         ControlerPersonnages.initPersonnages();
-        Modele.Personnage.Classe.Samurai samurai = Samurai;
-        System.out.println(Samurai.getForce());
-        samurai.setArmeEquiper(kunai);
-        System.out.println(Samurai.getForce());
-        samurai.retirerArme();
-        System.out.println(Samurai.getForce());
-        samurai.setArmeEquiper(ninjato);
-        System.out.println(Samurai.getForce());
-
+        System.out.println("Choissisez votre classe entre ceux là \n" +
+                        " 1 Barbare  \n" +
+                        " 2 Ninja : " + ControlerPersonnages.ninja.getDescription() + "Stat : " + ControlerPersonnages.ninja.getPointsDeVie() +"Pv - "+ ControlerPersonnages.ninja.getForce() + "Force - "+ ControlerPersonnages.ninja.getArmure() +"Armure - "+ ControlerPersonnages.ninja.getChanceCrit() + "Crit chance "+
+                "\n 3 = Sentinelle" );
     }
 }

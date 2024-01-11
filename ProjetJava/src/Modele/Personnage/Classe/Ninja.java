@@ -4,8 +4,8 @@ import Modele.Personnage.Joueur;
 
 public class Ninja extends Joueur {
     private String description;
-    public Ninja(String nom, int pointsDeVie, int force, int armure, int xp, int chanceCrit, String description,int or) {
-        super(nom, pointsDeVie, force, armure, xp, chanceCrit,or);
+    public Ninja(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int xp, String description,int or) {
+        super(nom, pointsDeVie, force, armure, chanceCrit, xp,or);
         this.description = description;
     }
 

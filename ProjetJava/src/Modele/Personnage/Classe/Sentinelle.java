@@ -5,7 +5,7 @@ import Modele.Personnage.Joueur;
 public class Sentinelle extends Joueur {
     private String description;
 
-    public Sentinelle(String nom, int pointsDeVie, int force, int armure, int xp, int chanceCrit, String description, int or) {
+    public Sentinelle(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int xp, String description,int or) {
         super(nom, pointsDeVie, force, armure, xp, chanceCrit, or);
         this.description = description;
     }

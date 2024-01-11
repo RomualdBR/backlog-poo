@@ -27,18 +27,17 @@ public class ControlerPersonnages {
 
         /*Classes Joueur*/
 
-        ninja = new Ninja("Ninja", 80, 25, 10, 0, 25,
+        ninja = new Ninja("Ninja", 80, 25, 10, 25, 25,
                 "Rigoureux et intrépide il n'a aucune pitier pour ses cibles.",10);
-        Samurai = new Samurai("Samurai", 100, 15, 15, 0, 15,
+        Samurai = new Samurai("Samurai", 100, 15, 15, 15, 0,
                 "Guerrier à fine lame, ayant pour principe l'honneur en combattant ses adversaire.", 10);
-        sentinelle = new Sentinelle("Sentinelle", 130, 15, 20, 0, 5,
+        sentinelle = new Sentinelle("Sentinelle", 130, 15, 20, 5, 0,
                 "Maître incontesté de la défense ils incarnent la quintessence de la résilience.", 20);
 
         /*Personnages ennemies*/
 
         ashigaru = new Ashigaru("Gégé l'Ashigaru, spécial", 75, 12, 17, 5,
                 "Soldat d'infanterie, souvent des paysans recruter en période de guerre.", 20);
-
         bandit = new Bandit("Pixelle le Bandit, au visage masqué car trop moche", 30, 5,0,0,
                 "Homme masqué en voulant à votre peau", 10);
         empereur = new Empereur("L'empereur Stefan, l'ingénieux informaticien", 250, 50, 60, 15, 0,
