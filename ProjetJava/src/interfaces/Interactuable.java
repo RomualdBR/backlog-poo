@@ -21,7 +21,7 @@ public interface Interactuable {
     static void utiliserPotionDeForce() {
 
     }
-
+    void sleep3s();
     void ramasserLoot();
     void choisirClasse();
     void commencerCombatBandit();

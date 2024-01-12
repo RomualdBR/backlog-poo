@@ -18,6 +18,10 @@ public abstract class Personnage {
         this.chanceCrit = chanceCrit;
     }
 
+    public Personnage() {
+
+    }
+
     public int getArmure() {
         return armure;
     }
