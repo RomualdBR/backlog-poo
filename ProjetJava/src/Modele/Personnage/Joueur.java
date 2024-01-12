@@ -54,9 +54,7 @@ public class Joueur extends Personnage implements Interactuable {
         return armeEquiper;
     }
 
-    public void retirerArme() {
-        this.setForce(this.getForce() - this.armeEquiper.getDegat());
-    }
+
 
     public void setArmeEquiper(Arme armeEquiper) {
         this.armeEquiper = armeEquiper;

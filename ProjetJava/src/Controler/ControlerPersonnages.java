@@ -37,24 +37,24 @@ public class ControlerPersonnages {
 
         /*Classes Joueur*/
 
-        ninja = new Ninja("Ninja", 80, 25, 10, 3, 0,
+        ninja = new Ninja("Ninja", 80, 25, 10, 4, 0,
                 "Rigoureux et intrépide il n'a aucune pitier pour ses cibles.",10, 80);
-        samurai = new Samurai("Samurai", 100, 15, 15, 4, 0,
+        samurai = new Samurai("Samurai", 100, 15, 15, 5, 0,
                 "Guerrier à fine lame, ayant pour principe l'honneur en combattant ses adversaire.", 10, 100);
-        sentinelle = new Sentinelle("Sentinelle", 130, 15, 20, 5, 0, "Maître incontesté de la défense ils incarnent la quintessence de la résilience.", 20, 130);
+        sentinelle = new Sentinelle("Sentinelle", 130, 15, 20, 6, 0, "Maître incontesté de la défense ils incarnent la quintessence de la résilience.", 20, 130);
 
         /*Personnages ennemies*/
 
-        ashigaru = new Ashigaru("Gégé l'Ashigaru, spécial", 75, 12, 17, 5, "Soldat d'infanterie, souvent des paysans recruter en période de guerre." );
+        ashigaru = new Ashigaru("Gégé l'Ashigaru, spécial", 110, 28, 20, 5, "Soldat d'infanterie, souvent des paysans recruter en période de guerre." );
         bandit = new Bandit("Pixelle le Bandit, au visage masqué car trop moche", 30, 5,0,1110,
                 "Homme masqué en voulant à votre peau");
-        empereur = new Empereur("L'empereur Stefan, l'ingénieux informaticien", 250, 50, 60, 10,
+        empereur = new Empereur("L'empereur Stefan, l'ingénieux informaticien", 250, 60, 60, 4,
                 "L'empereur qui as commandité le meutre de votre mère, le responsable de toutes ces erreurs informatiques, l'ENNEMIE.");
-        hatamoto = new Hatamoto("Tom le Hatamoto qui tricks", 145, 35, 25, 100
+        hatamoto = new Hatamoto("Tom le Hatamoto qui tricks", 160, 45, 29, 100
                 ,"Au service du shogun ce sombre guerrier skateur attend de défendre son seigneur fidélement.");
         roning = new Ronin("Ludwig, le sombre Ronin", 100, 25,15,80,
                 "Sombre guerrier errant n'ayant aucun maître et ayant envie de croiser le fer.");
-        shogun = new Shogun("Shogun Benilde, le gracieux", 170, 40,35,12
+        shogun = new Shogun("Shogun Benilde, le gracieux", 170, 40,35,8
                 ,"Responsable des armées, dernier rempart de sa majesté");
 
     }

@@ -2,8 +2,11 @@ package Modele.Personnage.Action;
 
 import Controler.ControlerArmes;
 import Modele.Personnage.Joueur;
+import Modele.Personnage.Objet.Arme.Arme;
 
 import java.util.Scanner;
+
+import static Controler.ControlerPersonnages.playyy;
 
 public class ShopAndLevel {
 
@@ -11,7 +14,7 @@ public class ShopAndLevel {
     public ShopAndLevel(Joueur joueur){
         this.joueur = joueur;
         ouvertureBoutique();
-        levelUp();
+        joueur.sleep3s();
     }
     public void ouvertureBoutique() {
         //designe du print
@@ -30,7 +33,7 @@ public class ShopAndLevel {
         Scanner scanner = new Scanner(System.in);
         int choix = scanner.nextInt();
 
-            if (choix == 1 && joueur.getOr() >= 15) {
+            if (choix == 1 ) {
 
 
                 System.out.println("Êtes-vous sur d'acheter la potion de force ?");
@@ -40,7 +43,7 @@ public class ShopAndLevel {
 
                 int confirmationPotionDeForce = scanner.nextInt();
 
-                if (confirmationPotionDeForce == 1) {
+                if (confirmationPotionDeForce == 1 && joueur.getOr() >= 15) {
                     ControlerArmes.potiondeforce.setQuantiter(ControlerArmes.potiondeforce.getQuantiter() + 1);
                     joueur.setOr(joueur.getOr() - 15);
                     System.out.println("Vous avez acheté " + ControlerArmes.potiondeforce.getQuantiter() + "  potions de force");
@@ -50,8 +53,12 @@ public class ShopAndLevel {
                 if (confirmationPotionDeForce == 2) {
                     ouvertureBoutique();
                 }
+                else {
+                    System.out.println("vous n'avez pas assez d'argent");
+                    ouvertureBoutique();
+                }
             }
-            if (choix == 2 && joueur.getOr() >= 15) {
+            if (choix == 2) {
                 System.out.println("Êtes-vous sur d'acheter la potion d'armure ?");
 
                 System.out.println("1 = oui");
@@ -59,7 +66,7 @@ public class ShopAndLevel {
 
                 int confirmationPotionArmure = scanner.nextInt();
 
-                if (confirmationPotionArmure == 1) {
+                if (confirmationPotionArmure == 1 && joueur.getOr() >=15) {
                     ControlerArmes.potionarmure.setQuantiter(ControlerArmes.potionarmure.getQuantiter() + 1);
                     joueur.setOr(joueur.getOr() - 15);
 
@@ -68,40 +75,69 @@ public class ShopAndLevel {
                 }
                 if (confirmationPotionArmure == 2) {
                     ouvertureBoutique();
+                }else {
+                    System.out.println("vous n'avez pas assez d'argent");
+                    ouvertureBoutique();
                 }
             }
 
-            if (choix == 3 && joueur.getOr() >= 15) {
+            if (choix == 3) {
                 System.out.println("Êtes-vous sur d'acheter la potion de vie ?");
 
                 System.out.println("1 = oui");
                 System.out.println("2 = non");
                 int confirmationPotionDeVie = scanner.nextInt();
 
-                if (confirmationPotionDeVie == 1) {
+                if (confirmationPotionDeVie == 1 & joueur.getOr() >=15) {
                     ControlerArmes.potionDeVieCommun.setQuantiter(ControlerArmes.potionDeVieCommun.getQuantiter() + 1);
                     joueur.setOr(joueur.getOr() - 15);
                     System.out.println("Vous avez acheté 1 potions de vie, vous en avez maitenant " + ControlerArmes.potionDeVieCommun.getQuantiter());
                     System.out.println("Il vous reste " + joueur.getOr() + " or");
-
+                }
+                if (confirmationPotionDeVie == 2) ouvertureBoutique();
+                else {
+                    System.out.println("vous n'avez pas assez d'argent");
+                    ouvertureBoutique();
                 }
             }
 
         if (choix == 4){
-            levelUp();
+            System.out.println("Bonne journée!");
+
         }
     }
-        //fonction de level up qui augmente toutes les stats
-    public void levelUp(){
+        //fonction de level up qui augmente toutes les stats de base du joueur
+    public static void levelUp(){
+        playyy.setVieMax(playyy.getVieMax()+10);
+        playyy.setPointsDeVie(playyy.getVieMax());
+        playyy.setForce(playyy.getForce()+10) ;
+        playyy.setArmure(playyy.getArmure() + 10);
+        playyy.setLevel(playyy.getLevel() + 1);
         System.out.println("Bravo vous venez de gagner un niveau ! et certaines de vos stats ont augmenté !\n" +
-                " pv "+joueur.getPointsDeVie()+" force "+joueur.getForce()+" armur "+joueur.getArmure()+" level "+joueur.getLevel());
-        joueur.setVieMax(joueur.getVieMax()+10);
-        joueur.setPointsDeVie(joueur.getVieMax());
-        joueur.setForce(joueur.getForce()+10) ;
-        joueur.setArmure(joueur.getArmure() + 10);
-        joueur.setLevel(joueur.getLevel() + 1);
-        System.out.println("Bravo vous venez de gagner un niveau ! et certaines de vos stats ont augmenté !\n" +
-                " pv "+joueur.getPointsDeVie()+" force "+joueur.getForce()+" armur "+joueur.getArmure()+" xp "+joueur.getLevel());
+                " pv "+playyy.getPointsDeVie()+" force "+playyy.getForce()+" armur "+playyy.getArmure()+" xp "+playyy.getLevel());
     }
+    public static void equiperRandomWeapon(){
+        ControlerArmes.initialiserListeArmes();
+        Arme armeRandom = ControlerArmes.choisirArmeAleatoire();
 
+        if (armeRandom != null) {
+
+            if (playyy.getArmeEquiper()!= null){
+                retirerArme();
+                System.out.println("\n d'une manière totalement aléatoire vous avez perdu votre arme, mais que faire?");
+                System.out.println("\n Vous vous êtes équipez d'une nouvelle arme tomber du ciel, el famoso : " + armeRandom.getNom() + " !! Qui est une " + armeRandom.getDescription() + " ce qui lui rajoute " + armeRandom.getDegat() + "point de dégat à tout ces coups.");
+                playyy.setArmeEquiper(armeRandom);
+            }
+            else {
+                playyy.setArmeEquiper(armeRandom);
+                System.out.println("\n Vous vous êtes équipez de votre fabuleuse arme tomber du ciel, le fameux : " + armeRandom.getNom() + " !! Qui est une " + armeRandom.getDescription() + " ce qui lui rajoute " + armeRandom.getDegat() + " point de dégat à tout ces coups.");
+            }
+        }else {
+            System.out.println("Problème avec les armes, aucune n'est disponibles.");
+        }
+    }
+    public static void retirerArme() {
+
+        playyy.setForce(playyy.getForce() - playyy.getArmeEquiper().getDegat());
+    }
 }

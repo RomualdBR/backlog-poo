@@ -4,9 +4,7 @@ import Modele.Personnage.Ennemie.Ennemi;
 import Modele.Personnage.Joueur;
 import java.util.Random;
 import java.util.Scanner;
-import Controler.ControlerArmes.*;
 
-import static Controler.ControlerArmes.katana;
 import static Controler.ControlerArmes.potionDeVieCommun;
 import static Controler.ControlerPersonnages.*;
 
@@ -47,12 +45,26 @@ public class Bagarre {
             }
         }
     }
-    public void renforcement(){
+    public void attaqueDeLaRoulette(){
         double forceDeBase = joueur.getForce();
         critFonction();
-        joueur.setForce((int) (joueur.getForce()*0.6));
-        joueur.setArmure(joueur.getArmure()+30);
-        attaqueEnemie();
+        Random r = new Random();
+        int n = r.nextInt(4);
+        if(n == 0)
+        {
+            System.out.println("Vous avez glisser, vous êtes sérieux ?");
+        }
+        if(n == 1){
+            joueur.setForce((int) (joueur.getForce()*1.8));
+            System.out.println("Tiens vous avez infligé un sacré coup à l'ennemie par chance!");
+            attaqueEnemie();
+        }if(n == 2){
+            joueur.setPointsDeVie((int) (joueur.getPointsDeVie() - 5));
+            System.out.println("Dommage Vous avez perdu 5 points de vie en vous frappant vous même!" );
+        }if (n == 3){
+            joueur.setArmure((int)(joueur.getArmure() - 3));
+            System.out.println("Dommage Vous avez perdu 3 points d'armure, vous avez faillis vous couper les doigts!!");
+        }
         joueur.setForce((int) forceDeBase);
     }
     public void critFonction(){
@@ -65,7 +77,7 @@ public class Bagarre {
         }
     }
     public void menuAttaque(){
-        System.out.println("1 : Coup Puissant (130% des dégats d'attaques) \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 2 : Renforcement (Augmente l'armure mais tape moins fort)\n" +
+        System.out.println("1 : Coup Puissant (130% des dégats d'attaques) \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 2 : L'attaque de la roulette (Advienne que pourras)\n" +
                            "3 : Attaque de base \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 4 : Attaque Vampirique (Soigne un peu et fait un peu moins de dégat\n" +
                 "\n 5 : Revenir en arrière" +
                 "Quel attaque choississez vous");
@@ -77,7 +89,7 @@ public class Bagarre {
                 defenseJoueur();
             }
             if(a == 2){
-                renforcement();
+                attaqueDeLaRoulette();
                 defenseJoueur();
             }
             if(a == 3){
@@ -115,6 +127,7 @@ public class Bagarre {
         }if (joueur.getPointsDeVie() == joueur.getVieMax()) {
             System.out.println("Vous ne pouvez pas vous soignez si vous êtes full vie.");
         }
+        joueur.setForce((int) forceDeBase);
     }
     public void attaqueEnemie(){
         //méthode qui prend la force du joueur pour infliger des dégat à l'ennemie.
@@ -129,13 +142,25 @@ public class Bagarre {
             System.out.println("Félicitation, vous avez gagnez le combat contre " + ennemi.getNom() + "!!");
         }
         if (joueur.getPointsDeVie()>0) {
+            Random r = new Random();
+            int n = r.nextInt(ennemi.getChanceCrit()+1);
+            if(n==1) {
+                System.out.println("Coup critique de l'ennemie !!");
+                ennemi.setForce((int) (ennemi.getForce() * 1.5));
+            }
             joueur.setPointsDeVie(joueur.getPointsDeVie() + joueur.getArmure());
             joueur.setPointsDeVie(joueur.getPointsDeVie() - ennemi.getForce());
             double damageCalculator = ennemi.getForce() - joueur.getArmure();
             System.out.println("Vous avez subis : " + damageCalculator + "points de dégat");
             if (joueur.getPointsDeVie() == 0 || joueur.getPointsDeVie() <=0){
-                System.out.println("Vous avez perdu contre " + ennemi.getNom() + "!!");
+               if (ennemi.getNom().equals("L'empereur Stefan, l'ingénieux informaticien")){
+                   System.out.println("Vous avez perdu contre " + ennemi.getNom() + "!!");
                 System.out.println("Mais courage, nous feront comme si nous n'avions rien vue.");
+               }
+            else{
+                System.out.println("Vous avez perdu contre " + ennemi.getNom() + "!!");
+                   System.out.println("Mais courage, nous feront comme si nous n'avions rien vue.");
+               }
             }
         }
     }
@@ -221,23 +246,24 @@ public class Bagarre {
         }
         }
     public static void menuDuJeu() {
-
-        System.out.println("  THE VENGANCE OF TAKESHI  ");
-        System.out.println("―――――――――――――――――――――――――――");
-        System.out.println("      1. Jouer ");
-        System.out.println("      2. Charger ");
-        System.out.println("      3. Sauvegarder");
-        System.out.println("      4. Quitter");
-        System.out.println("―――――――――――――――――――――――――――");
+        System.out.println("          ＴＨＥ　ＶＥＮＧＡＮＣＥ　ＯＦ　ＴＡＫＥＳＨＩ　ク永悪で  ");
+        System.out.println("          ―――――――――――――――――――――――――――");
+        System.out.println("             1. Jouer ");
+        System.out.println("             2. Charger ");
+        System.out.println("             3. Quitter");
+        System.out.println("          ―――――――――――――――――――――――――――");
+        System.out.println("Votre choix :");
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
 
 
         if ( a == 1){
             debutHistoire();
-
         }
-
+        if ( a == 3) {
+            System.out.println("Vous avez quitté le jeu 'The vengance of TAKESHI'");
+            System.exit(0);
+        }
 
     }
 
@@ -252,7 +278,11 @@ public class Bagarre {
        }
         System.out.println("Impuissant face à cette scène macabre, Takeshi parvient à tuer l'un des 5 bandits et s'enfuit. ");
         System.out.println("Nourrit par la haine et le soif de vengance, Takeshi décida de se lancer dans une quête pour devenir un monstre redoutable et affronter ceux qui avaient pris la vie de sa mère. \n");
-
+        try{
+            Thread.sleep(8000);
+        }catch(Exception e){
+            System.out.println("");
+        }
 
 
     }
