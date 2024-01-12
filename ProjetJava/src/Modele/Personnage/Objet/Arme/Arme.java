@@ -2,7 +2,9 @@ package Modele.Personnage.Objet.Arme;
 
 import Modele.Personnage.Objet.Objet;
 
-public abstract class Arme extends Objet {
+import java.io.Serializable;
+
+public abstract class Arme extends Objet implements Serializable {
     private int degat;
 
     public Arme(String nom, int quantiter, String description, String rareter, int degat, int prix) {

@@ -1,6 +1,8 @@
 package Modele.Personnage.Objet;
 
-public abstract class Objet {
+import java.io.Serializable;
+
+public abstract class Objet implements Serializable {
     private String nom;
     private int quantiter;
     private String rareter;

@@ -11,11 +11,20 @@ import static Controler.ControlerPersonnages.playyy;
 public class ShopAndLevel {
 
     private Joueur joueur;
+
+    /**
+     * Initialise le joueur aux fonctions pour être utiliser plus facilement
+     * @param joueur
+     */
     public ShopAndLevel(Joueur joueur){
         this.joueur = joueur;
         ouvertureBoutique();
         joueur.sleep3s();
     }
+
+    /**
+     * Ouvre la boutique et permet d'acheter les potions et d'y déduire l'or du joueur
+     */
     public void ouvertureBoutique() {
         //designe du print
         System.out.println("\t\t\t\t+==============================+");
@@ -106,7 +115,10 @@ public class ShopAndLevel {
 
         }
     }
-        //fonction de level up qui augmente toutes les stats de base du joueur
+
+    /**
+     * méthode qui augmente les stats du joueur généralement appeler apres un combat
+     */
     public static void levelUp(){
         playyy.setVieMax(playyy.getVieMax()+10);
         playyy.setPointsDeVie(playyy.getVieMax());
@@ -116,6 +128,10 @@ public class ShopAndLevel {
         System.out.println("Bravo vous venez de gagner un niveau ! et certaines de vos stats ont augmenté !\n" +
                 " pv "+playyy.getPointsDeVie()+" force "+playyy.getForce()+" armur "+playyy.getArmure()+" xp "+playyy.getLevel());
     }
+
+    /**
+     * méthode pour équiper aleatoirement une arme
+     */
     public static void equiperRandomWeapon(){
         ControlerArmes.initialiserListeArmes();
         Arme armeRandom = ControlerArmes.choisirArmeAleatoire();
@@ -136,6 +152,10 @@ public class ShopAndLevel {
             System.out.println("Problème avec les armes, aucune n'est disponibles.");
         }
     }
+
+    /**
+     * méthode permettant de retirer l'arme du joueur et de rez la force
+     */
     public static void retirerArme() {
 
         playyy.setForce(playyy.getForce() - playyy.getArmeEquiper().getDegat());

@@ -2,21 +2,32 @@ package Modele.Personnage.Action;
 import Controler.*;
 import Modele.Personnage.Ennemie.Ennemi;
 import Modele.Personnage.Joueur;
+import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
-
 import static Controler.ControlerArmes.potionDeVieCommun;
 import static Controler.ControlerPersonnages.*;
 
-public class Bagarre {
+public class Bagarre implements Serializable {
     private Joueur joueur;
     private Ennemi ennemi;
 
+    /**
+     * Initialise le joueur et l'ennemi, permet aussi d'utiliser plus facilement le joueur et l'ennemi
+     * @param joueur
+     * @param ennemi
+     */
     public Bagarre(Joueur joueur, Ennemi ennemi) {
         this.joueur = joueur;
         this.ennemi = ennemi;
         commencerCombatBandit();
     }
+
+    /**
+     * Fonction de combat qui print les stats du joueur et de l'ennemie
+     * Peut aussi imprimer et faire appels aux fonctions d'attaque et celle de l'inventaire
+     * check aussi si le joueur ou l'ennemie meurt.
+     */
     public void commencerCombatBandit() {
         //boucle while pour que le combat dure jusqu'à ce que l'un des deux soit morts
         while (joueur.getPointsDeVie() > 0 && ennemi.getPointsDeVie() > 0) {
@@ -45,6 +56,10 @@ public class Bagarre {
             }
         }
     }
+
+    /**
+     * Attaque aléatoire chance de rater, se blesser, s'infliger un malus ou ne rien faire
+     */
     public void attaqueDeLaRoulette(){
         double forceDeBase = joueur.getForce();
         critFonction();
@@ -67,6 +82,10 @@ public class Bagarre {
         }
         joueur.setForce((int) forceDeBase);
     }
+
+    /**
+     * fonction pour faire des coup critique a chaque attaque
+     */
     public void critFonction(){
         //fonction random pour les chances de crit, qui prend du random en fonction des chances de crit du joueur
         Random r = new Random();
@@ -76,6 +95,10 @@ public class Bagarre {
             joueur.setForce((int) (joueur.getForce()*1.5));
         }
     }
+
+    /**
+     * Menu qui peut faire appel aux différentes attaques
+     */
     public void menuAttaque(){
         System.out.println("1 : Coup Puissant (130% des dégats d'attaques) \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 2 : L'attaque de la roulette (Advienne que pourras)\n" +
                            "3 : Attaque de base \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 4 : Attaque Vampirique (Soigne un peu et fait un peu moins de dégat\n" +
@@ -107,15 +130,21 @@ public class Bagarre {
             System.out.println("Rentrer un chiffre");
         }
     }
-    //compétence
+
+    /**
+     * Compétence de base qui augmente les dégats de 130%
+     */
     public void coupPuissant(){
         double forceDeBase = joueur.getForce();
         critFonction();
         joueur.setForce((int) (joueur.getForce() * 1.3));
         attaqueEnemie();
         joueur.setForce((int) forceDeBase);
-
     }
+
+    /**
+     * Attaque qui régénère la santé du joueur
+     */
     public void attaqueVampyrique(){
         double forceDeBase = joueur.getForce();
         critFonction();
@@ -129,6 +158,11 @@ public class Bagarre {
         }
         joueur.setForce((int) forceDeBase);
     }
+
+    /**
+     * méthode qui est appeler à chaque compétences, sort la force du joueur dans les méthode d'attaque
+     * pour pouvoir déduire les points de vie ennemie de la force du joueur
+     */
     public void attaqueEnemie(){
         //méthode qui prend la force du joueur pour infliger des dégat à l'ennemie.
         ennemi.setPointsDeVie(ennemi.getPointsDeVie()+ennemi.getArmure());
@@ -136,6 +170,10 @@ public class Bagarre {
         double damageCalculator = joueur.getForce() - ennemi.getArmure();
         System.out.println("Vous avez infligez : " + damageCalculator + "points de dégat");
     }
+
+    /**
+     * Méthode qui permet à l'ennemie d'attaquer le joueur
+     */
     public void defenseJoueur(){
         //sert à ce que l'ennemie nous attaque
         if (ennemi.getPointsDeVie() == 0 || ennemi.getPointsDeVie() <=0){
@@ -164,6 +202,11 @@ public class Bagarre {
             }
         }
     }
+
+    /**
+     * Méthode qui permet de citer les potions, avoir leurs quantité, et description.
+     * Et qui permet aussi de les utilisers
+     */
     public void ouvrirInventaire() {
         System.out.println("1 : " + potionDeVieCommun.getNom() + " | Quantité : " + potionDeVieCommun.getQuantiter() + " | Description : " + potionDeVieCommun.getDescription());
         System.out.println("2 : " + ControlerArmes.potiondeforce.getNom() + "| Quantité : " + ControlerArmes.potiondeforce.getQuantiter() + " | Description : " + ControlerArmes.potiondeforce.getDescription());
@@ -210,6 +253,10 @@ public class Bagarre {
             ouvrirInventaire();
         }
     }
+
+    /**
+     * permet d'utiliser la potion de vie et de rajouter des pv au joueurs sans dépasser le seuil maximal de pv
+     */
     public void utiliserPotionDeVie() {
         try {
             playyy.setPointsDeVie(playyy.getPointsDeVie()+ potionDeVieCommun.getHeal());
@@ -230,6 +277,10 @@ public class Bagarre {
         ouvrirInventaire();
 
     }
+
+    /**
+     * méthode de potier d'armure qui augmente l'armure de façon permanente
+     */
     public static void utiliserPotionArmure(){
         try {
             playyy.setArmure(playyy.getArmure() + ControlerArmes.potionarmure.getBonusArmure());
@@ -238,6 +289,10 @@ public class Bagarre {
             System.out.println("Erreur avec la potion d'armure");
         }
     }
+
+    /**
+     * potion de force qui augmente de façon permanente la force du joueur
+     */
     public static void utiliserPotionDeForce(){
         try {
             playyy.setForce(playyy.getForce() + ControlerArmes.potiondeforce.getBonusForce());
@@ -245,6 +300,11 @@ public class Bagarre {
             System.out.println("Erreur avec la potion de force");
         }
         }
+
+    /**
+     * menu du jeu afficher lorsqu'on lance le code au début, qui permet de jouer, ou de charger
+     * une sauvegarde, ainsi que de quitter et d'arrêter le code.
+     */
     public static void menuDuJeu() {
         System.out.println("          ＴＨＥ　ＶＥＮＧＡＮＣＥ　ＯＦ　ＴＡＫＥＳＨＩ　ク永悪で  ");
         System.out.println("          ―――――――――――――――――――――――――――");
@@ -260,14 +320,27 @@ public class Bagarre {
         if ( a == 1){
             debutHistoire();
         }
-        if ( a == 3) {
+        if ( a == 2) {
+            chargerSauvegarde();
+        } if ( a == 3) {
             System.out.println("Vous avez quitté le jeu 'The vengance of TAKESHI'");
             System.exit(0);
         }
 
     }
 
-
+    /**
+     * Suposer charger la sauvegarde
+     */
+    public static void chargerSauvegarde() {
+        Bagarre bagarreChargee = Bagarre.charger("sauvegarde1.txt");
+        if (bagarreChargee != null) {
+            bagarreChargee.commencerCombatBandit();
+        }
+    }
+    /**
+     * Permet de print plusieurs ligne qui sert à l'histoire limitant le flood du main
+     */
     public static void debutHistoire() {
         System.out.println("Il était une fois, dans le Japon ancien, un jeune homme du nom de Takeshi vivait paisiblement dans le village au côté de sa tendre mère");
         System.out.println("Sa vie paisible fut bouleversée lorsqu'un groupe de bandits, engagés par l'empereur lui-même attaqua sa mère et la TUA !");
@@ -287,5 +360,34 @@ public class Bagarre {
 
     }
 
+
+    /**
+     * senser sauvegarder mais ne fonctionne pas
+     * @param nomFichier
+     */
+    public void sauvegarder(String nomFichier) {
+        try (ObjectOutputStream sortie = new ObjectOutputStream(new FileOutputStream(nomFichier))) {
+            sortie.writeObject(this);
+            System.out.println("Sauvegarde réussie !");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * charge la sauvegarde
+     * @param nomFichier
+     * @return
+     */
+    public static Bagarre charger(String nomFichier) {
+        try (ObjectInputStream entree = new ObjectInputStream(new FileInputStream(nomFichier))) {
+            Bagarre bagarre = (Bagarre) entree.readObject();
+            System.out.println("Chargement réussi !");
+            return bagarre;
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 }

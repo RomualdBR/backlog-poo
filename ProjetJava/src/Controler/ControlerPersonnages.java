@@ -26,7 +26,9 @@ public class ControlerPersonnages {
     public static Joueur playyy;
     public static ArrayList<Ennemi> ennemy= new ArrayList<Ennemi>();
 
-
+    /**
+     * initialise tout les personnages des constructeur joueur, et ennemie
+     */
     public static void initPersonnages(){
         /*liste enemy*/
         ennemy.add(bandit);ennemy.add(ashigaru);ennemy.add(empereur);ennemy.add(roning);ennemy.add(shogun);ennemy.add(hatamoto);
@@ -58,6 +60,11 @@ public class ControlerPersonnages {
                 ,"Responsable des armées, dernier rempart de sa majesté");
 
     }
+
+    /**
+     * méthode permettant de set au joueur une classe et de la stocker dans la variable playyy qui seras notre joueur
+     * pour le restant du code
+     */
     public static void choisirClasse() {
 
         initPersonnages();

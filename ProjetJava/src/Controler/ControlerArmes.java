@@ -22,6 +22,10 @@ public class ControlerArmes {
     public static LongSabre nodachi;
     public static LongSabre longsabre;
     private static ArrayList<Arme> listeArmes;
+
+    /**
+     * Initialise les armes et les potions issue de la classe arme et objet.
+     */
     public static void initArmes(){
         /*Potions*/
 
@@ -47,6 +51,10 @@ public class ControlerArmes {
         nodachi = new LongSabre("Nodachi", 1,"Long sabre japonais que l'on manipule à 2 mains","Rare",20, 20 );
         longsabre = new LongSabre("Sabre rouillé", 1,"Sabre qui a déjà tranché et rouillé par le temps ", "Commun",10, 0);
     }
+
+    /**
+     * Remplis une liste avec les armes initialiser juste au dessus dans listeArmes
+     */
     public static void initialiserListeArmes() {
         listeArmes = new ArrayList<>();
         listeArmes.add(new Katana("Wakisashi", 1, "Un sabre japonais similaire au katana mais de petite taille porté à la ceinture par les samourai.", "Commun", 10, 0));
@@ -56,6 +64,11 @@ public class ControlerArmes {
         listeArmes.add(new LongSabre("Nodachi", 1, "Long sabre japonais que l'on manipule à 2 mains", "Rare", 20, 20));
         listeArmes.add(new LongSabre("Sabre rouillé", 1, "Sabre qui a déjà tranché et rouillé par le temps", "Commun", 10, 0));
     }
+
+    /**
+     * récupère une arme aléatoire dans la liste listeArmes
+     * @return
+     */
     public static Arme choisirArmeAleatoire() {
 
         // Vérifiez que la liste n'est pas vide

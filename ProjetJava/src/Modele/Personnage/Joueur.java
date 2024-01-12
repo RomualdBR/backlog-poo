@@ -1,16 +1,15 @@
 package Modele.Personnage;
-
-import Controler.ControlerPersonnages;
 import Modele.Personnage.Objet.Arme.Arme;
 import interfaces.Interactuable;
 
-public class Joueur extends Personnage implements Interactuable {
+import java.io.Serializable;
+
+public class Joueur extends Personnage implements Interactuable, Serializable {
     private int level;
     private Arme armeEquiper;
     private int or;
     private String description;
     private int vieMax;
-    Modele.Personnage.Joueur joueur = ControlerPersonnages.joueur;
 
 
     public Joueur(String nom, int pointsDeVie, int force, int armure, int chanceCrit, int level, int or, String description, int vieMax) {
@@ -55,7 +54,10 @@ public class Joueur extends Personnage implements Interactuable {
     }
 
 
-
+    /**
+     *ajoute l'arme équiper à la force
+     * @param armeEquiper
+     */
     public void setArmeEquiper(Arme armeEquiper) {
         this.armeEquiper = armeEquiper;
         //sert à que l'arme équiper ajouter ces dégats à la force du joueur
@@ -70,33 +72,10 @@ public class Joueur extends Personnage implements Interactuable {
         this.description = description;
     }
 
-    void ramasserObjet() {
-
-    }
-
-
     @Override
-    public void choixPotion() {
-
-    }
-
-    @Override
-    public void coupCritique() {
-
-    }
-
-    @Override
-    public void attaquer() {
-
-    }
-
-    @Override
-    public void defendre() {
-
-    }
-
-
-    @Override
+    /**
+     * Sert à mettre le jeu en freeze pendant 3s
+     */
     public void sleep3s(){
         try {
             Thread.sleep(3000);
@@ -104,24 +83,4 @@ public class Joueur extends Personnage implements Interactuable {
             System.out.println("");
         }
         }
-
-
-
-
-
-    @Override
-    public void ramasserLoot() {
-
-    }
-
-    @Override
-    public void choisirClasse() {
-
-    }
-
-
-    @Override
-    public void commencerCombatBandit() {
-
-    }
 }
