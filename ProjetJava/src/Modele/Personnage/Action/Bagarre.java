@@ -22,9 +22,9 @@ public class Bagarre {
     public void commencerCombatBandit() {
         //boucle while pour que le combat dure jusqu'à ce que l'un des deux soit morts
         while (joueur.getPointsDeVie() > 0 && ennemi.getPointsDeVie() > 0) {
-            System.out.println("\nJoueur Stat : " + joueur.getPointsDeVie() + " Pv - " + joueur.getForce() + " Force - " + joueur.getArmure() + " Armure - " + joueur.getChanceCrit() + " Crit chance "
+            System.out.println("Joueur Stat : " + joueur.getPointsDeVie() + " Pv - " + joueur.getForce() + " Force - " + joueur.getArmure() + " Armure - " + joueur.getChanceCrit() + " Crit chance "
                     + "                                                          " +
-                   ennemi.getNom()+ "Stat : " + ennemi.getPointsDeVie() + " Pv - " + ennemi.getForce() + " Force - " + ennemi.getArmure() + " Armure - " + ennemi.getChanceCrit() + " Crit chance ");
+                   ennemi.getNom()+ " Stat : " + ennemi.getPointsDeVie() + " Pv - " + ennemi.getForce() + " Force - " + ennemi.getArmure() + " Armure - " + ennemi.getChanceCrit() + " Crit chance ");
             //sert à demander aux joueurs ce qu'ils veulent faire, attaquer ou ouvrir l'inventaire
             System.out.println("Que voulez vous faire : \n 1 : Attaquer \n 2 : Ouvrir l'inventaire de potion \n Choix : ");
             Scanner scannewr = new Scanner(System.in);
@@ -191,7 +191,7 @@ public class Bagarre {
             //sert à ne pas exceder les points de vie max qu'on as au début du combat
             if (playyy.getPointsDeVie() > playyy.getVieMax()) {
                 playyy.setPointsDeVie(playyy.getVieMax());
-                System.out.println(playyy.getPointsDeVie());
+                System.out.println("Vous vous êtes soigner de 40 Pv, vous avez maintenant : " +playyy.getPointsDeVie()+ "Pv.");
             }//vérifie qu'on est pas déjà full vie
             if (playyy.getPointsDeVie() == playyy.getVieMax()) {
                 System.out.println("Vous ne pouvez pas vous soignez si vous êtes full vie.");
@@ -220,6 +220,42 @@ public class Bagarre {
             System.out.println("Erreur avec la potion de force");
         }
         }
+    public static void menuDuJeu() {
+
+        System.out.println("  THE VENGANCE OF TAKESHI  ");
+        System.out.println("―――――――――――――――――――――――――――");
+        System.out.println("      1. Jouer ");
+        System.out.println("      2. Charger ");
+        System.out.println("      3. Sauvegarder");
+        System.out.println("      4. Quitter");
+        System.out.println("―――――――――――――――――――――――――――");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+
+
+        if ( a == 1){
+            debutHistoire();
+
+        }
+
+
+    }
+
+
+    public static void debutHistoire() {
+        System.out.println("Il était une fois, dans le Japon ancien, un jeune homme du nom de Takeshi vivait paisiblement dans le village au côté de sa tendre mère");
+        System.out.println("Sa vie paisible fut bouleversée lorsqu'un groupe de bandits, engagés par l'empereur lui-même attaqua sa mère et la TUA !");
+       try{
+           Thread.sleep(4000);
+       }catch(Exception e){
+           System.out.println("");
+       }
+        System.out.println("Impuissant face à cette scène macabre, Takeshi parvient à tuer l'un des 5 bandits et s'enfuit. ");
+        System.out.println("Nourrit par la haine et le soif de vengance, Takeshi décida de se lancer dans une quête pour devenir un monstre redoutable et affronter ceux qui avaient pris la vie de sa mère. \n");
+
+
+
+    }
 
 
 }

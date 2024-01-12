@@ -28,6 +28,7 @@ public class Main {
         joueur.sleep3s();
 
         //Sert à avoir une arme aléatoire dans la liste qui est dans la méthode choisirArmeAleatoire(); et l'équipe à notre joueur
+        ControlerArmes.initialiserListeArmes();
         Arme armeRandom = ControlerArmes.choisirArmeAleatoire();
         if (armeRandom != null) {
             playyy.setArmeEquiper(armeRandom);
@@ -55,20 +56,32 @@ public class Main {
         //Instancier le shop
         ShopAndLevel shop1 = new ShopAndLevel(playyy);
         shop1.ouvertureBoutique();
+        joueur.sleep3s();
 
         System.out.println("Bon bah j'espère que vous avez fait le pleins, vous aurez l'occasion d'y refaire un tour toute façon!, enfin si vous survivez...");
-
-        System.out.println("SAPERLIPOPETTE UN ENEMIE ENCORE ");
+        joueur.sleep3s();
+        System.out.println("SAPERLIPOPETTE UN ENEMIE ENCORE, PREPAREZ VOUS! ");
+        joueur.sleep3s();
         //deuxième combat
         Bagarre bagarre2 = new Bagarre(playyy, roning);
         bagarre2.commencerCombatBandit();
 
+        ShopAndLevel shop2 = new ShopAndLevel(playyy);
+        shop2.ouvertureBoutique();
+        joueur.sleep3s();
+
+        joueur.sleep3s();
 
 
         Bagarre bagarre3 = new Bagarre(playyy, shogun);
         bagarre3.commencerCombatBandit();
 
+        ShopAndLevel shop3 = new ShopAndLevel(playyy);
+        shop3.ouvertureBoutique();
 
+
+
+        joueur.sleep3s();
 
         Bagarre bagarre4 = new Bagarre(playyy, empereur);
         bagarre4.commencerCombatBandit();

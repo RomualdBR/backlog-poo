@@ -29,7 +29,7 @@ public class ShopAndLevel {
         //vérification et demande d'achat
         Scanner scanner = new Scanner(System.in);
         int choix = scanner.nextInt();
-        try {
+
             if (choix == 1 && joueur.getOr() >= 15) {
 
 
@@ -86,12 +86,7 @@ public class ShopAndLevel {
 
                 }
             }
-        }catch(Exception e){
-            System.out.println("Entrer un chiffre et vérifier bien que vous avez assez d'or.");
-        }finally {
-            System.out.println("Entrer un chiffre et vérifier bien que vous avez assez d'or.");
-            ouvertureBoutique();
-        }
+
         if (choix == 4){
             levelUp();
         }
@@ -108,4 +103,5 @@ public class ShopAndLevel {
         System.out.println("Bravo vous venez de gagner un niveau ! et certaines de vos stats ont augmenté !\n" +
                 " pv "+joueur.getPointsDeVie()+" force "+joueur.getForce()+" armur "+joueur.getArmure()+" xp "+joueur.getLevel());
     }
+
 }

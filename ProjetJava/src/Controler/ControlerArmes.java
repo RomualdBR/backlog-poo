@@ -47,7 +47,7 @@ public class ControlerArmes {
         nodachi = new LongSabre("Nodachi", 1,"Long sabre japonais que l'on manipule à 2 mains","Rare",20, 20 );
         longsabre = new LongSabre("Sabre rouillé", 1,"Sabre qui a déjà tranché et rouillé par le temps ", "Commun",10, 0);
     }
-    public void initialiserListeArmes() {
+    public static void initialiserListeArmes() {
         listeArmes = new ArrayList<>();
         listeArmes.add(new Katana("Wakisashi", 1, "Un sabre japonais similaire au katana mais de petite taille porté à la ceinture par les samourai.", "Commun", 10, 0));
         listeArmes.add(new Katana("Katana", 1, "Armes courbé ayant un seul tranchant, cette arme est la plus utilisé par les samourai.", "Rare", 20, 10));
@@ -57,6 +57,7 @@ public class ControlerArmes {
         listeArmes.add(new LongSabre("Sabre rouillé", 1, "Sabre qui a déjà tranché et rouillé par le temps", "Commun", 10, 0));
     }
     public static Arme choisirArmeAleatoire() {
+
         // Vérifiez que la liste n'est pas vide
         if (listeArmes.isEmpty()) {
             System.out.println("La liste d'armes est vide.");
